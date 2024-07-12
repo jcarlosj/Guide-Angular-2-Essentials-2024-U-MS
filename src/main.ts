@@ -7,4 +7,3 @@ import { HeaderComponent } from './app/header.component';
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));
 
-bootstrapApplication(HeaderComponent);
