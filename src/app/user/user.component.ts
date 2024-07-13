@@ -20,4 +20,8 @@ export class UserComponent {
     return 'assets/images/users/' + this.selectedUser.avatar;
   }
 
+  onSelectUser() {
+    console.log( 'Clicked!' );
+  }
+
 }
