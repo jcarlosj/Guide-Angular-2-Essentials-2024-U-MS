@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { DUMMY_TASKS } from '../dummy-tasks';
 import { NewTaskComponent } from './new-task/new-task.component';
+import { NewTaskData } from './task/task.model';
 
 @Component({
   selector: 'app-tasks',
@@ -35,7 +36,7 @@ export class TasksComponent {
     this.isAddingTask = false;
   }
 
-  onAddTask( newTask: {title: string; summary: string, date: string}) {
+  onAddTask( newTask: NewTaskData ) {
     this.tasks.unshift({
       id: new Date().getTime().toString(),    // Asignamos un ID aleatorio usando la clase Date
       userId: this.userId,                    // Asignamos el ID del usuario actual
