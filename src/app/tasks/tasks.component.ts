@@ -40,10 +40,4 @@ export class TasksComponent {
     this.isAddingTask = false;
   }
 
-  onAddTask( newTask: NewTaskData ) {
-    this.tasksService.addTask( newTask, this.userId );
-
-    this.isAddingTask = false;
-  }
-
 }
