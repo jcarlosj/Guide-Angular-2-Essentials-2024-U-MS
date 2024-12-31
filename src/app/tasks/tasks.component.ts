@@ -1,9 +1,12 @@
 import { Component, Input } from '@angular/core';
+
 import { TaskComponent } from './task/task.component';
-import { DUMMY_TASKS } from '../dummy-tasks';
 import { NewTaskComponent } from './new-task/new-task.component';
-import { NewTaskData } from './task/task.model';
 import { CardComponent } from "../shared/ui/card/card.component";
+
+import { TasksService } from './tasks.service';
+
+import { type NewTaskData } from './task/task.model';
 
 @Component({
   selector: 'app-tasks',
@@ -18,15 +21,15 @@ export class TasksComponent {
 
   isAddingTask: boolean = false;
 
-  tasks = DUMMY_TASKS;
+  /** Dependency Injection using constructor */
+  constructor( private tasksService: TasksService ) {}
 
   get selectedUserTasks() {
-
-    return this.tasks.filter( task => task.userId === this.userId );
+    return this.tasksService.getUserTasks( this.userId );
   }
 
   onCompleteTask( id: string ) {
-    this.tasks = this.tasks.filter( task => task.id !== id );
+    this.tasksService.removeTask( id );
   }
 
   onStartAddTask() {
@@ -38,13 +41,7 @@ export class TasksComponent {
   }
 
   onAddTask( newTask: NewTaskData ) {
-    this.tasks.unshift({
-      id: new Date().getTime().toString(),    // Asignamos un ID aleatorio usando la clase Date
-      userId: this.userId,                    // Asignamos el ID del usuario actual
-      title: newTask.title,
-      summary: newTask.summary,
-      dueDate: newTask.date
-    });
+    this.tasksService.addTask( newTask, this.userId );
 
     this.isAddingTask = false;
   }
