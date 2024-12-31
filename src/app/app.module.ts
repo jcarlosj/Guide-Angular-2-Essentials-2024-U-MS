@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -7,9 +8,9 @@ import { TasksComponent } from './tasks/tasks.component';
 import { UserComponent } from './user/user.component';
 import { HeaderComponent } from './header/header.component';
 import { TaskComponent } from './tasks/task/task.component';
-import { CardComponent } from './shared/ui/card/card.component';
 import { NewTaskComponent } from './tasks/new-task/new-task.component';
-import { FormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
+
 
 
  @NgModule({
@@ -18,7 +19,6 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     HeaderComponent,
     UserComponent,
-    CardComponent,
     TasksComponent,
     TaskComponent,
     NewTaskComponent
@@ -26,7 +26,8 @@ import { FormsModule } from '@angular/forms';
   bootstrap: [ AppComponent ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    SharedModule
     /** Aqui se integran Standalone Components */
   ]
 })
