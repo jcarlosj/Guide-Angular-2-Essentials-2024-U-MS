@@ -7,21 +7,27 @@ import { TasksComponent } from './tasks/tasks.component';
 import { UserComponent } from './user/user.component';
 import { HeaderComponent } from './header/header.component';
 import { TaskComponent } from './tasks/task/task.component';
+import { CardComponent } from './shared/ui/card/card.component';
+import { NewTaskComponent } from './tasks/new-task/new-task.component';
+import { FormsModule } from '@angular/forms';
 
 
  @NgModule({
   declarations: [
     /** Aqui se integran Modular Components */
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    UserComponent,
+    CardComponent,
+    TasksComponent,
+    TaskComponent,
+    NewTaskComponent
   ],
   bootstrap: [ AppComponent ],
   imports: [
     BrowserModule,
+    FormsModule
     /** Aqui se integran Standalone Components */
-    HeaderComponent,
-    UserComponent,
-    TasksComponent,
-    TaskComponent
   ]
 })
 export class AppModule { }
