@@ -1,12 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+
+import { TasksComponent } from './tasks.component';
+import { TaskComponent } from './task/task.component';
+import { NewTaskComponent } from './new-task/new-task.component';
+
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+      TasksComponent,
+      TaskComponent,
+      NewTaskComponent
+  ],
+  exports: [ TasksComponent ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    SharedModule
   ]
 })
 export class TasksModule { }
